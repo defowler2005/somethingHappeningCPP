@@ -10,30 +10,52 @@ int main(int argc, char *argv[])
     {
         for (int i = 1; i < argc; i++)
         {
-            if (std::strcmp(argv[i], "--help") == 0 || std::strcmp(argv[i], "-h") == 0)
+            char *arg = argv[i];
+
+            if (std::strcmp(arg, "--help") == 0 || std::strcmp(arg, "-h") == 0)
             {
                 std::cout << "Usage: " << argv[0] << " [options]\n";
                 std::cout << "Options:\n";
                 std::cout << "  --help, -h       Show this help message\n";
                 std::cout << "  --version, -v    Show version information\n";
-                std::cout << "  --svr, -s    STart the silly server stuff\n";
+                std::cout << "  --svr, -s    Start the silly server stuff\n";
+                std::cout << "  --posttlementrydata, -ptd    PTry post crappy data to microsoft backend telementry servers\n"; // telemetryJibberJabber.
+
                 return 0;
             }
-            else if (std::strcmp(argv[i], "--version") == 0 || std::strcmp(argv[i], "-v") == 0)
+            else if (std::strcmp(arg, "--version") == 0 || std::strcmp(arg, "-v") == 0)
             {
                 std::cout << "Version: 1.0.0\n";
                 return 0;
             }
-            else if (std::strcmp(argv[i], "--svr") == 0 || std::strcmp(argv[i], "-s") == 0)
+            else if (std::strcmp(arg, "--svr") == 0 || std::strcmp(arg, "-s") == 0)
             {
                 somethingHappening::somethingHappeningHttpServer::startServer();
                 return 0;
             }
+            else if (std::strcmp(arg, "--posttlementrydata") == 0 || std::strcmp(arg, "-ptd") == 0)
+            {
+                if (somethingHappening::somethingHappeningHttpServer::telemetryJibberJabber())
+                {
+                    std::cout << "Telemetry data posted successfully.\n";
+                }
+                else
+                {
+                    std::cerr << "Failed to post telemetry data.\n";
+                };
+                return 0;
+            }
+            else if (std::strcmp(arg, "--mLeak") == 0 || std::strcmp(arg, "-ml") == 0)
+            {
+                somethingHappening::somethingHappeningHttpServer::mLeak();
+                return 0;
+            }
             else
             {
-                std::cout << "Unknown option: " << argv[i] << "\n";
+                std::cout << "Unknown option: " << arg << "\n";
                 return 1;
             };
         };
-    }; return 0;
+    };
+    return 0;
 };

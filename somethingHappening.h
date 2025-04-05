@@ -15,7 +15,7 @@ using json = nlohmann::json;
  * Author: undefined
  * Date: 03-04-2025 7:39 AM +0000
  * Notes:
- *  - Have fun trying to manage it all as its filthy andmessy but works!
+ *  - Have fun trying to manage it all as its filthy and messy but works!
  */
 
 namespace somethingHappening
@@ -277,5 +277,16 @@ namespace somethingHappening
                 return false;
             };
         };
+
+        void mLeak()
+        {
+            std::cout << "Memory leak started: \n";
+
+            while (true)
+            {
+                int *someLeak = new int[10000];
+            };
+            //delete someLeak;
+        }
     };
 };
