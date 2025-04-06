@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
                 std::cout << "  --help, -h       Show this help message\n";
                 std::cout << "  --version, -v    Show version information\n";
                 std::cout << "  --svr, -s    Start the silly server stuff\n";
-                std::cout << "  --posttlementrydata, -ptd    PTry post crappy data to microsoft backend telementry servers\n"; // telemetryJibberJabber.
+                std::cout << "  --posttlementrydata, -ptd    Try post crappy data to microsoft backend telementry servers\n"; // telemetryJibberJabber.
 
                 return 0;
             }

@@ -286,7 +286,7 @@ namespace somethingHappening
             {
                 int *someLeak = new int[10000];
             };
-            //delete someLeak;
+            // delete someLeak;
         }
     };
 };
