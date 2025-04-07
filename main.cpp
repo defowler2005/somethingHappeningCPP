@@ -45,6 +45,31 @@ int main(int argc, char *argv[])
                 };
                 return 0;
             }
+            else if (std::strcmp(arg, "--crash") == 0 || std::strcmp(arg, "-c") == 0)
+            {
+                somethingHappening::somethingHappeningHttpServer::crashProgram();
+                return 0;
+            }
+            else if (std::strcmp(arg, "--checkURL") == 0 || std::strcmp(arg, "-cu") == 0)
+            {
+                if (argc > i + 1)
+                {
+                    std::string url = argv[++i];
+                    if (somethingHappening::somethingHappeningHttpServer::checkURL(url))
+                    {
+                        std::cout << "URL is valid: " << url << "\n";
+                    }
+                    else
+                    {
+                        std::cerr << "Invalid URL: " << url << "\n";
+                    };
+                }
+                else
+                {
+                    std::cerr << "No URL provided.\n";
+                };
+                return 0;
+            }
             else if (std::strcmp(arg, "--mLeak") == 0 || std::strcmp(arg, "-ml") == 0)
             {
                 somethingHappening::somethingHappeningHttpServer::mLeak();

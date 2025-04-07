@@ -156,6 +156,16 @@ namespace somethingHappening
             }
         };
 
+        void crashProgram()
+        {
+            std::cout << "Meow!" << std::endl;
+
+            volatile int* a = reinterpret_cast<volatile int*>(NULL);
+            *a = 1;
+
+            std::cout << "Hello, world!" << std::endl;
+        };
+
         bool telemetryJibberJabber(const std::string &url = "https://dc.services.visualstudio.com/v2/track")
         {
             const std::string prefix = "https://";
@@ -288,5 +298,5 @@ namespace somethingHappening
             };
             // delete someLeak;
         }
-    };
-};
+    }; // namespace somethingHappeningHttpServer
+}; // namespace somethingHappening
