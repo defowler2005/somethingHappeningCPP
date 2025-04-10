@@ -299,6 +299,9 @@ namespace somethingHappening
             // delete someLeak;
         };
 
-        
+        bool fucker(std::string str)
+        {
+            return true;
+        };
     }; // namespace somethingHappeningHttpServer
 }; // namespace somethingHappening
