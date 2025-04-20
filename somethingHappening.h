@@ -180,7 +180,7 @@ namespace somethingHappening
             {
                 std::cerr << "Invalid URL: no path specified.\n";
                 return false;
-            }
+            };
 
             std::string host = url.substr(prefix.size(), slash_pos - prefix.size());
             std::string path = url.substr(slash_pos);
@@ -270,7 +270,6 @@ namespace somethingHappening
     }
   }
 }
-
     })";
 
             auto res = cli.Post(path.c_str(), headers, payload, "application/json");
